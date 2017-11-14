@@ -10,6 +10,14 @@ Currently the search string is `TODO`, taking the entire line after TODO
 
 ### Usage
 
+**In your code, leave TODO comments like this:**
+```javascript
+//TODO: Remove hardcoded api root before going into prod
+var api_root = 'https://example.com'
+
+function halfBaked() {} //TODO: flesh out halfBaked function
+```
+
 Install globally from NPM:
 
 `npm i -g print`
