@@ -12,22 +12,22 @@ var program = require('commander');
 // Just needed to make it look nicer :D
 var chalk = require('chalk');
 
-var base = null;
+
 var todoCnt = 0;
 var searchRegEx = /TODO(.*)/g;
 
+program.on('--help', function() {
+	console.log('')
+	console.log('  Defaults to current working directory without a path as input') 
+	console.log('  Recurses through dirs under the starting point')
+	console.log('  Excludes node_modules and .git')
+	console.log('')
+	console.log('   Examples: ')
+	console.log('')
+	console.log('   $ printTodo ./routes')
+	console.log('   $ printTodo')
+})
 try {
-	program.on('--help', function() {
-		console.log('')
-		console.log('  Defaults to current working directory without a path as input') 
-		console.log('  Recurses through dirs under the starting point')
-		console.log('  Excludes node_modules and .git')
-		console.log('')
-		console.log('   Examples: ')
-		console.log('')
-		console.log('   $ printTodo ./routes')
-		console.log('   $ printTodo')
-	})
 
 program
 	.version('0.1.0')
