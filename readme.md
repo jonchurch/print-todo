@@ -1,6 +1,6 @@
 ## Print TODO
 
-Simple script for formatting and outputting all TODO comments left in your code.
+Command line tool for formatting and outputting all TODO comments left in your code.
 
 Currently the search string is `TODO`, taking the entire line after TODO
 
@@ -8,7 +8,7 @@ Currently the search string is `TODO`, taking the entire line after TODO
 
 ![console output example](https://i.imgur.com/ncmiSx2.png)
 
-### Usage
+### Setup
 
 **In your code, leave TODO comments like this:**
 ```javascript
@@ -22,17 +22,17 @@ Install globally from NPM:
 
 `npm i -g print`
 
-To use from the directory you would like to see all Todos in:
+
+### Usage
+
+Run in current working directory without a directory arguement, or specify a folder to search through. Searches through folders recursively under the starting point, ignoring `node_modules` and `.git` folders
 
 ```
 $ cd project-folder
 $ printTodo
-```
 
-To see todos starting from a specific folder, or any folder on your system, pass a folderpath as the last argument:
+$ printTodo ~/Projects/project-folder
 
-```
-printTodo ~/Projects/project-folder
 ```
 
 ### Credit
