@@ -24,3 +24,8 @@ To see todos starting from a specific folder, or any folder on your system, pass
 ```
 printTodo ~/Projects/project-folder
 ```
+
+### Credit
+This is based off of a project by [Julian Burr](https://github.com/julianburr). Thank you Julian!
+
+
