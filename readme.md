@@ -27,7 +27,7 @@ Install globally from NPM:
 
 Run in current working directory without a directory arguement, or specify a folder to search through. Searches through folders recursively under the starting point, ignoring `node_modules` and `.git` folders
 
-```
+```bash
 $ cd project-folder
 $ printTodo
 
