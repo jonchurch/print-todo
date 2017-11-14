@@ -36,6 +36,6 @@ printTodo ~/Projects/project-folder
 ```
 
 ### Credit
-This is based off of a project by [Julian Burr](https://github.com/julianburr). Thank you Julian!
+This is based off of a [gist](https://gist.github.com/julianburr/5fa7d4e3e22773f035ee7a62e97f1d59) by [Julian Burr](https://github.com/julianburr). Thank you Julian!
 
 
