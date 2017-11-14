@@ -30,6 +30,7 @@ try {
 	})
 
 program
+	.version('0.1.0')
 	.arguments('<dir>')
 	.action(dir => {
 		// readDir()
