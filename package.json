@@ -2,7 +2,6 @@
   "name": "print-todo",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,6 +9,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^2.1.0"
+    "chalk": "^2.1.0",
+    "commander": "^2.11.0",
+    "fs-extra": "^4.0.2"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "printTodo": "cli.js"
   }
 }

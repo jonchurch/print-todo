@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * Author: Julian Burr <https://github.com/julianburr>
  * License: https://creativecommons.org/publicdomain/zero/1.0/
@@ -14,12 +16,40 @@
  * npm run todos
  */
 var fs = require('fs-extra');
+var program = require('commander');
 // Just needed to make it look nicer :D
 var chalk = require('chalk');
 
 var base = null;
 var todoCnt = 0;
 var searchRegEx = /TODO(.*)/g;
+
+try {
+
+program
+	.arguments('<dir>')
+	.action(dir => {
+		// readDir()
+		if (fs.existsSync(dir)) {
+			program.dir = dir
+		} else {
+			throw new Error(`Error: ${dir} is not a directory or doesn't exist`)
+		}
+	})
+	.parse(process.argv);
+
+} catch (err) {
+	console.log(chalk.red(err.message))
+	process.exit(1)
+}
+var dir = program.dir || './'
+readDir(dir)
+
+if (todoCnt > 0) {
+	console.log(chalk.red(chalk.bold('\n' + todoCnt + ' todos found in code\n')));
+} else {
+	console.log(chalk.green(chalk.bold('\nGreat, seems you are todo-free\n')));
+}
 
 /**
  * Create a function that reads a directory so we can call it recursively
@@ -28,11 +58,14 @@ var searchRegEx = /TODO(.*)/g;
 function readDir(dirPath){
   var list = fs.readdirSync(dirPath);
   list.forEach(function(fileName){
+	  // skip node_modules and .git folder
 	  if (fileName === 'node_modules') {
-		  console.log('skipping node modules')
+		  return
+	  } if (fileName === '.git') {
 		  return
 	  }
-    var fullPath = dirPath + '/' + fileName;
+	  var relPathRegEx = /^\.\/$/
+    var fullPath = dirPath.match(relPathRegEx) ? `./${fileName}` : `${dirPath}/${fileName}`;
     var stats = fs.statSync(fullPath);
     if (stats.isDirectory()) {
       readDir(fullPath);
@@ -55,9 +88,3 @@ function readDir(dirPath){
   })
 }
 
-readDir('./');
-if (todoCnt > 0) {
-  console.log(chalk.red(chalk.bold('\n' + todoCnt + ' todos found in code\n')));
-} else {
-  console.log(chalk.green(chalk.bold('\nGreat, seems you are todo-free\n')));
-}
