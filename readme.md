@@ -6,6 +6,8 @@ Currently the search string is `TODO`, taking the entire line after TODO
 
 **`node_modules` and `.git` folders are currently ignored!**
 
+![console output example](https://i.imgur.com/ncmiSx2.png)
+
 ### Usage
 
 Install globally from NPM:
