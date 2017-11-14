@@ -1,19 +1,11 @@
 #!/usr/bin/env node
 
 /**
+ * Adapted by Jon Church from:
+ *
  * Author: Julian Burr <https://github.com/julianburr>
  * License: https://creativecommons.org/publicdomain/zero/1.0/
- * 
- * This script basically just runs through all source files and
- * prints out a list of files and lines where it found the TODO
- * keyword
  *
- * If you want to look for other keywords, just changed the
- * searchRegEx to your needs :)
- *
- * If placed in your projects you can set it up as a script in your
- * package json and run it like this:
- * npm run todos
  */
 var fs = require('fs-extra');
 var program = require('commander');
@@ -25,6 +17,17 @@ var todoCnt = 0;
 var searchRegEx = /TODO(.*)/g;
 
 try {
+	program.on('--help', function() {
+		console.log('')
+		console.log('  Defaults to current working directory without a path as input') 
+		console.log('  Recurses through dirs under the starting point')
+		console.log('  Excludes node_modules and .git')
+		console.log('')
+		console.log('   Examples: ')
+		console.log('')
+		console.log('   $ printTodo ./routes')
+		console.log('   $ printTodo')
+	})
 
 program
 	.arguments('<dir>')
