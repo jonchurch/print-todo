@@ -1,11 +1,15 @@
 {
   "name": "print-todo",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Print TODOS in your project from the command line",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["todo", "fixme", "print todo"],
+  "keywords": [
+    "todo",
+    "fixme",
+    "print todo"
+  ],
   "author": "Jon Church",
   "license": "MIT",
   "dependencies": {
